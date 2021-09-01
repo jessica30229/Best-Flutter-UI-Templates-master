@@ -11,6 +11,7 @@
       <sourceFolder url="file://$MODULE_DIR$/.idea/gen" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/gen" isTestSource="false" generated="true" />
       <excludeFolder url="file://$MODULE_DIR$/best_flutter_ui_templates/build" />
+      <excludeFolder url="file://$MODULE_DIR$/best_flutter_ui_templates/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/best_flutter_ui_templates/.pub" />
     </content>
     <orderEntry type="jdk" jdkName="Android API 31 Platform" jdkType="Android SDK" />

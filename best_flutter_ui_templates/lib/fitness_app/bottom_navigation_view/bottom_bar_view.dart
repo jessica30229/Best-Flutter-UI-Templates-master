@@ -3,7 +3,7 @@ import 'package:best_flutter_ui_templates/fitness_app/fitness_app_theme.dart';
 import 'package:best_flutter_ui_templates/fitness_app/models/tabIcon_data.dart';
 import 'package:best_flutter_ui_templates/main.dart';
 import 'package:flutter/material.dart';
-
+import 'package:best_flutter_ui_templates/navigation_home_screen.dart';
 import '../../main.dart';
 import '../models/tabIcon_data.dart';
 
@@ -43,23 +43,15 @@ class _BottomBarViewState extends State<BottomBarView>
           builder: (BuildContext context, Widget? child) {
             return Transform(
               transform: Matrix4.translationValues(0.0, 0.0, 0.0),
-              child: PhysicalShape(
+              child: Container(
                 color: FitnessAppTheme.Yellow,
-                elevation: 16.0,
-                clipper: TabClipper(
-                    radius: Tween<double>(begin: 0.0, end: 1.0)
-                            .animate(CurvedAnimation(
-                                parent: animationController!,
-                                curve: Curves.fastOutSlowIn))
-                            .value *
-                        38.0),
                 child: Column(
                   children: <Widget>[
                     SizedBox(
-                      height: 62,
+                      height: 72,
                       child: Padding(
                         padding:
-                            const EdgeInsets.only(left: 8, right: 8, top: 4),
+                            const EdgeInsets.only(left: 8, right: 8, top:15, bottom: 15),
                         child: Row(
                           children: <Widget>[
                             Expanded(
@@ -84,9 +76,9 @@ class _BottomBarViewState extends State<BottomBarView>
                               width: Tween<double>(begin: 0.0, end: 1.0)
                                       .animate(CurvedAnimation(
                                           parent: animationController!,
-                                          curve: Curves.fastOutSlowIn))
+                                          curve: Curves.bounceIn))
                                       .value *
-                                  64.0,
+                                  80,
                             ),
                             Expanded(
                               child: TabIcons(
@@ -121,16 +113,16 @@ class _BottomBarViewState extends State<BottomBarView>
         ),
         Padding(
           padding:
-              EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom),
+           const EdgeInsets.only(top:15, bottom: 10),
           child: SizedBox(
-            width: 38 * 2.0,
-            height: 38 + 62.0,
+            width: 50 ,
+            height: 50 ,
             child: Container(
-              alignment: Alignment.topCenter,
+              alignment: Alignment.center,
               color: Colors.transparent,
               child: SizedBox(
-                width: 38 * 2.0,
-                height: 38 * 2.0,
+                width: 50,
+                height: 50,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ScaleTransition(
@@ -142,34 +134,21 @@ class _BottomBarViewState extends State<BottomBarView>
                     child: Container(
                       // alignment: Alignment.center,s
                       decoration: BoxDecoration(
-                        color: FitnessAppTheme.nearlyDarkBlue,
-                        gradient: LinearGradient(
-                            colors: [
-                              FitnessAppTheme.nearlyDarkBlue,
-                              HexColor('#6A88E5'),
-                            ],
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight),
+                        color: FitnessAppTheme.nearlyBlack,
                         shape: BoxShape.circle,
-                        boxShadow: <BoxShadow>[
-                          BoxShadow(
-                              color: FitnessAppTheme.nearlyDarkBlue
-                                  .withOpacity(0.4),
-                              offset: const Offset(8.0, 16.0),
-                              blurRadius: 16.0),
-                        ],
                       ),
                       child: Material(
                         color: Colors.transparent,
                         child: InkWell(
-                          splashColor: Colors.white.withOpacity(0.1),
+                          customBorder: CircleBorder(),
+                          splashColor: Colors.white70,
                           highlightColor: Colors.transparent,
                           focusColor: Colors.transparent,
-                          onTap: widget.addClick,
+                          onTap:widget.addClick,
                           child: Icon(
                             Icons.add,
                             color: FitnessAppTheme.white,
-                            size: 32,
+                            size: 25,
                           ),
                         ),
                       ),
@@ -329,50 +308,50 @@ class _TabIconsState extends State<TabIcons> with TickerProviderStateMixin {
   }
 }
 
-class TabClipper extends CustomClipper<Path> {
-  TabClipper({this.radius = 38.0});
-
-  final double radius;
-
-  @override
-  Path getClip(Size size) {
-    final Path path = Path();
-
-    final double v = radius * 2;
-    path.lineTo(0, 0);
-    path.arcTo(Rect.fromLTWH(0, 0, radius, radius), degreeToRadians(180),
-        degreeToRadians(90), false);
-    path.arcTo(
-        Rect.fromLTWH(
-            ((size.width / 2) - v / 2) - radius + v * 0.04, 0, radius, radius),
-        degreeToRadians(270),
-        degreeToRadians(70),
-        false);
-
-    path.arcTo(Rect.fromLTWH((size.width / 2) - v / 2, -v / 2, v, v),
-        degreeToRadians(160), degreeToRadians(-140), false);
-
-    path.arcTo(
-        Rect.fromLTWH((size.width - ((size.width / 2) - v / 2)) - v * 0.04, 0,
-            radius, radius),
-        degreeToRadians(200),
-        degreeToRadians(70),
-        false);
-    path.arcTo(Rect.fromLTWH(size.width - radius, 0, radius, radius),
-        degreeToRadians(270), degreeToRadians(90), false);
-    path.lineTo(size.width, 0);
-    path.lineTo(size.width, size.height);
-    path.lineTo(0, size.height);
-
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(TabClipper oldClipper) => true;
-
-  double degreeToRadians(double degree) {
-    final double redian = (math.pi / 180) * degree;
-    return redian;
-  }
-}
+// class TabClipper extends CustomClipper<Path> {
+//   TabClipper({this.radius = 38.0});
+//
+//   final double radius;
+//
+//   @override
+//   Path getClip(Size size) {
+//     final Path path = Path();
+//
+//     final double v = radius * 2;
+//     path.lineTo(0, 0);
+//     path.arcTo(Rect.fromLTWH(0, 0, radius, radius), degreeToRadians(180),
+//         degreeToRadians(90), false);
+//     path.arcTo(
+//         Rect.fromLTWH(
+//             ((size.width / 2) - v / 2) - radius + v * 0.04, 0, radius, radius),
+//         degreeToRadians(270),
+//         degreeToRadians(70),
+//         false);
+//
+//     path.arcTo(Rect.fromLTWH((size.width / 2) - v / 2, -v / 2, v, v),
+//         degreeToRadians(160), degreeToRadians(-140), false);
+//
+//     path.arcTo(
+//         Rect.fromLTWH((size.width - ((size.width / 2) - v / 2)) - v * 0.04, 0,
+//             radius, radius),
+//         degreeToRadians(200),
+//         degreeToRadians(70),
+//         false);
+//     path.arcTo(Rect.fromLTWH(size.width - radius, 0, radius, radius),
+//         degreeToRadians(270), degreeToRadians(90), false);
+//     path.lineTo(size.width, 0);
+//     path.lineTo(size.width, size.height);
+//     path.lineTo(0, size.height);
+//
+//     path.close();
+//     return path;
+//   }
+//
+//   @override
+//   bool shouldReclip(TabClipper oldClipper) => true;
+//
+//   double degreeToRadians(double degree) {
+//     final double redian = (math.pi / 180) * degree;
+//     return redian;
+//   }
+// }
