@@ -1,10 +1,10 @@
-import 'dart:math' as math;
+// import 'dart:math' as math;
 import 'package:best_flutter_ui_templates/fitness_app/fitness_app_theme.dart';
 import 'package:best_flutter_ui_templates/fitness_app/models/tabIcon_data.dart';
-import 'package:best_flutter_ui_templates/main.dart';
+// import 'package:best_flutter_ui_templates/main.dart';
 import 'package:flutter/material.dart';
-import 'package:best_flutter_ui_templates/navigation_home_screen.dart';
-import '../../main.dart';
+// import 'package:best_flutter_ui_templates/navigation_home_screen.dart';
+// import '../../main.dart';
 import '../models/tabIcon_data.dart';
 
 class BottomBarView extends StatefulWidget {

@@ -67,14 +67,21 @@ class CenterNextButton extends StatelessWidget {
               animation: animationController,
               builder: (context, child) => Padding(
                 padding: EdgeInsets.only(
-                    bottom: 38 - (38 * _signUpMoveAnimation.value)),
+                    bottom: 100 - (38 * _signUpMoveAnimation.value)),
                 child: Container(
-                  height: 58,
-                  width: 58 + (200 * _signUpMoveAnimation.value),
+                  height: 64,
+                  width: 250 + (38 * _signUpMoveAnimation.value),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(
-                        8 + 32 * (1 - _signUpMoveAnimation.value)),
-                    color: Color(0xff132137),
+                        2 + 10 * (1 - _signUpMoveAnimation.value)),
+                    color: Color(0xFFFFD600),
+                    boxShadow: <BoxShadow>[
+                      BoxShadow(
+                      color: Colors.black45,
+                      // blurRadius: 15.0,
+                      offset: Offset(0.0, 0.75)
+                    )
+                    ],
                   ),
                   child: PageTransitionSwitcher(
                     duration: Duration(milliseconds: 480),
@@ -121,8 +128,16 @@ class CenterNextButton extends StatelessWidget {
                             onTap: onNextClick,
                             child: Padding(
                               padding: EdgeInsets.all(16.0),
-                              child: Icon(Icons.arrow_forward_ios_rounded,
-                                  color: Colors.white),
+                              child: Text(
+                                    '下一題',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                              // Icon(Icons.arrow_forward_ios_rounded,
+                              //     color: Colors.white),
                             ),
                           ),
                   ),
@@ -176,22 +191,22 @@ class CenterNextButton extends StatelessWidget {
     }
 
     return Padding(
-      padding: const EdgeInsets.only(bottom: 16),
+      padding: const EdgeInsets.only(bottom: 450),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           for (var i = 0; i < 4; i++)
             Padding(
-              padding: const EdgeInsets.all(4),
+              padding: const EdgeInsets.all(6),
               child: AnimatedContainer(
                 duration: Duration(milliseconds: 480),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(32),
+                  borderRadius: BorderRadius.circular(10),
                   color: _selectedIndex == i
-                      ? Color(0xff132137)
-                      : Color(0xffE3E4E4),
+                      ? Color(0xFFFFD600)
+                      : Color(0xffD6D6D6),
                 ),
-                width: 10,
+                width: 50,
                 height: 10,
               ),
             )
