@@ -24,8 +24,8 @@ class CenterNextButton extends StatelessWidget {
         Tween<double>(begin: 0, end: 1.0).animate(CurvedAnimation(
       parent: animationController,
       curve: Interval(
-        0.6,
-        0.8,
+        0.2,
+        0.4,
         curve: Curves.fastOutSlowIn,
       ),
     ));
@@ -34,8 +34,8 @@ class CenterNextButton extends StatelessWidget {
             .animate(CurvedAnimation(
       parent: animationController,
       curve: Interval(
-        0.6,
-        0.8,
+        0.2,
+        0.4,
         curve: Curves.fastOutSlowIn,
       ),
     ));
@@ -85,7 +85,7 @@ class CenterNextButton extends StatelessWidget {
                   ),
                   child: PageTransitionSwitcher(
                     duration: Duration(milliseconds: 480),
-                    reverse: _signUpMoveAnimation.value < 0.7,
+                    reverse: _signUpMoveAnimation.value < 0.3,
                     transitionBuilder: (
                       Widget child,
                       Animation<double> animation,
@@ -99,7 +99,7 @@ class CenterNextButton extends StatelessWidget {
                         transitionType: SharedAxisTransitionType.vertical,
                       );
                     },
-                    child: _signUpMoveAnimation.value > 0.7
+                    child: _signUpMoveAnimation.value > 0.3
                         ? InkWell(
                             key: ValueKey('Sign Up button'),
                             onTap: onNextClick,
@@ -181,11 +181,11 @@ class CenterNextButton extends StatelessWidget {
     int _selectedIndex = 0;
 
     if (animationController.value >= 0.7) {
-      _selectedIndex = 3;
-    } else if (animationController.value >= 0.5) {
       _selectedIndex = 2;
-    } else if (animationController.value >= 0.3) {
+    } else if (animationController.value >= 0.5) {
       _selectedIndex = 1;
+    } else if (animationController.value >= 0.3) {
+      _selectedIndex = 3;
     } else if (animationController.value >= 0.1) {
       _selectedIndex = 0;
     }

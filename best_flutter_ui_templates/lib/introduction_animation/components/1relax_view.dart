@@ -15,8 +15,8 @@ class RelaxView extends StatelessWidget {
             .animate(CurvedAnimation(
       parent: animationController,
       curve: Interval(
-        0.0,
         0.2,
+        0.4,
         curve: Curves.fastOutSlowIn,
       ),
     ));
@@ -25,8 +25,8 @@ class RelaxView extends StatelessWidget {
             .animate(CurvedAnimation(
       parent: animationController,
       curve: Interval(
-        0.2,
         0.4,
+        0.6,
         curve: Curves.fastOutSlowIn,
       ),
     ));
@@ -35,8 +35,8 @@ class RelaxView extends StatelessWidget {
             .animate(CurvedAnimation(
       parent: animationController,
       curve: Interval(
-        0.0,
         0.2,
+        0.4,
         curve: Curves.fastOutSlowIn,
       ),
     ));
@@ -45,8 +45,8 @@ class RelaxView extends StatelessWidget {
             .animate(CurvedAnimation(
       parent: animationController,
       curve: Interval(
-        0.2,
         0.4,
+        0.6,
         curve: Curves.fastOutSlowIn,
       ),
     ));
@@ -56,8 +56,8 @@ class RelaxView extends StatelessWidget {
             .animate(CurvedAnimation(
       parent: animationController,
       curve: Interval(
-        0.0,
         0.2,
+        0.4,
         curve: Curves.fastOutSlowIn,
       ),
     ));
@@ -66,14 +66,14 @@ class RelaxView extends StatelessWidget {
             .animate(CurvedAnimation(
       parent: animationController,
       curve: Interval(
-        0.2,
         0.4,
+        0.6,
         curve: Curves.fastOutSlowIn,
       ),
     ));
 
     // final List<int> entries = <int>[1, 2, 3, 4, 5, 6, 7, 8];
-    bool _hasBeenPressed = false;
+    // bool _hasBeenPressed = false;
 
     return SlideTransition(
       position: _firstHalfAnimation,
@@ -103,7 +103,6 @@ class RelaxView extends StatelessWidget {
                 position: _imageFirstHalfAnimation,
                 child: SlideTransition(
                   position: _imageSecondHalfAnimation,
-                  // 
                   child: Container(
                     constraints: BoxConstraints(maxWidth: 1000, maxHeight: 350),
                     child: ListView(

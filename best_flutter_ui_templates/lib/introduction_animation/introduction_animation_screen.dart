@@ -45,6 +45,9 @@ class _IntroductionAnimationScreenState
             SplashView(
               animationController: _animationController!,
             ),
+            WelcomeView(
+              animationController: _animationController!,
+            ),
             RelaxView(
               animationController: _animationController!,
             ),
@@ -52,9 +55,6 @@ class _IntroductionAnimationScreenState
               animationController: _animationController!,
             ),
             MoodDiaryVew(
-              animationController: _animationController!,
-            ),
-            WelcomeView(
               animationController: _animationController!,
             ),
             TopBackSkipView(
